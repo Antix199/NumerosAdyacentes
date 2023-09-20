@@ -8,7 +8,7 @@ Metodo validarEntrada
 #
 Metodo largoArray
 #
-metodo llenar largoArray
+metodo llenarArray
 #
 metodo generarRandom
 #
