@@ -1,43 +1,47 @@
-import java.util.Scanner;
+import java.util.InputMismatchException;
 import java.util.Random;
+import java.util.Scanner;
 
 public class ProductoAdyacentes {
     public static void main(String[] args) {
-        iniciar();
-    }
 
-    public static void iniciar() {
-        int[] arreglo = largoArreglo();
-        generarRandom(arreglo);
-        imprimirArreglo(arreglo);
-    }
+        int[] arreglo = generarArregloVacio(largoArreglo);
+        llenarArreglo(arreglo);
 
-    public static int[] largoArreglo() {
-        Scanner scanner = new Scanner(System.in);
-        int n;
-        do {
-            System.out.print("Ingresa el tamaño del arreglo (debe ser mayor que 2 y menor a 20): ");
-            n = scanner.nextInt();
-        } while (n < 2 || n > 20);
-        int[] arreglo = new int[n];
-        return arreglo;
-    }
-
-    public static void imprimirArreglo(int[] arreglo) {
-        System.out.println("El arreglo es:");
+        // Imprimir el arreglo generado
+        System.out.println("Arreglo generado:");
         for (int i = 0; i < arreglo.length; i++) {
-            System.out.print(arreglo[i]);
-            if (i != arreglo.length - 1) {
-                System.out.print(" ");
-            }
+            System.out.println(arreglo[i]);
         }
-        System.out.println();
+
+
+    }
+    //expresiones regulares java
+    public static int validarEntrada() {
+        Scanner scanner = new Scanner(System.in);
+        int largoArreglo;
+        try{
+            do {
+                System.out.print("Ingresa el largo del arreglo (entre 2 y 20): ");
+                largoArreglo = scanner.nextLine();
+            } while (largoArreglo < 2 || largoArreglo > 20);
+            return largoArreglo;}
+        catch (InputMismatchException e){
+            System.out.println("Entrada no válida; ingresar un número");
+            Scanner.nextLine();
+
+        }
+        Scanner.close();
     }
 
-    public static void generarRandom(int[] arreglo) {
-        Random rand = new Random();
+    public static int[] generarArregloVacio(int largoArreglo) {
+        return new int[largoArreglo];
+    }
+
+    public static void llenarArreglo(int[] arreglo) {
+        Random random = new Random();
         for (int i = 0; i < arreglo.length; i++) {
-            arreglo[i] = rand.nextInt(1001); // Números entre -1000 y 1000
+            arreglo[i] = random.nextInt(2001) - 1000;
         }
     }
 }
