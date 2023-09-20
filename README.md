@@ -4,7 +4,7 @@ Actividad 0:
 - El valor de retorno será el mayor de los multiplicados, valor de tipo int.
 - Pasos/Métodos a seguir:
 #
-Metodo ValidarEntrada
+Metodo validarEntrada
 #
 Metodo largoArray
 #
