@@ -1,41 +1,65 @@
-import java.util.Scanner;
+import java.util.InputMismatchException;
 import java.util.Random;
+import java.util.Scanner;
 
 public class ProductoAdyacentes {
     public static void main(String[] args) {
         iniciar();
     }
-
     public static void iniciar() {
-        int[] arreglo = largoArreglo();
-        generarRandom(arreglo);
+        int largoArreglo = validarLargoArreglo();
+        int[] arreglo = generarArregloVacio(largoArreglo);
+        llenarArreglo(arreglo);
+
+        System.out.println("Arreglo generado con éxito");
         imprimirArreglo(arreglo);
-        System.out.println(multipliacion(arreglo));
+        System.out.println("Máxima multiplicación de números adyacentes: " + productoAdyacente(arreglo));
     }
 
-    public static int[] largoArreglo() {
-        int n = validarEntrada();
-        while (n < 2 || n > 20) {
-            System.out.println("El tamaño del arreglo debe estar entre 2 y 20.");
-            n = validarEntrada();
-        }
-        int[] arreglo = new int[n];
-        return arreglo;
-    }
-
-    public static int validarEntrada() {
+    //Es posible mejorar el código utilizando expresiones regulares de java
+    //Investigaremos sobre el tema para aplicarlo en futuros códigos
+    public static int entradaUsuario() {
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Ingresa el tamaño del arreglo (debe ser un número entero): ");
-        while (!scanner.hasNextInt()) {
-            System.out.println("Entrada no válida. Por favor ingresa un número entero.");
-            scanner.next();
+        int entradaUsuario = 0;
+        try {
+            System.out.print("Ingresa el largo del arreglo: ");
+            entradaUsuario = scanner.nextInt();
+        } catch (InputMismatchException e) {
+            System.out.println("Entrada no válida; debes ingresar un número entero.");
+            scanner.nextLine();
         }
-        int n = scanner.nextInt();
-        return n;
+        return entradaUsuario;
+    }
+
+    public static int validarLargoArreglo() {
+        int entradaUsuario;
+        do {
+            entradaUsuario = entradaUsuario();
+            if (entradaUsuario < 2 || entradaUsuario > 20) {
+                System.out.println("El número debe estar entre 2 y 20. Intenta de nuevo:");
+            }
+        } while (entradaUsuario < 2 || entradaUsuario > 20);
+        return entradaUsuario;
+    }
+
+
+    public static int[] generarArregloVacio(int largoArreglo) {
+        return new int[largoArreglo];
+    }
+
+    public static int generarRandom() {
+        Random rand = new Random();
+        return rand.nextInt(2001) - 1000;
+    }
+
+    public static void llenarArreglo(int[] arreglo){
+        for (int i = 0; i < arreglo.length; i++) {
+            arreglo[i] = generarRandom();
+        }
     }
 
     public static void imprimirArreglo(int[] arreglo) {
-        System.out.println("El arreglo es:");
+        System.out.println("El arreglo es el siguiente:");
         for (int i = 0; i < arreglo.length; i++) {
             System.out.print(arreglo[i]);
             if (i != arreglo.length - 1) {
@@ -44,15 +68,7 @@ public class ProductoAdyacentes {
         }
         System.out.println();
     }
-
-    public static void generarRandom(int[] arreglo) {
-        Random rand = new Random();
-        for (int i = 0; i < arreglo.length; i++) {
-            arreglo[i] = rand.nextInt(1001);
-        }
-    }
-
-    public static int multipliacion(int[] arreglo){
+    public static int productoAdyacente(int[] arreglo){
         int maxProducto = arreglo[0] * arreglo[1];
 
         for (int i = 1; i < arreglo.length - 1; i++) {
