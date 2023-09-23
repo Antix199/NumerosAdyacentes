@@ -13,7 +13,7 @@ public class ProductoAdyacentes {
 
         System.out.println("Arreglo generado con éxito");
         imprimirArreglo(arreglo);
-        System.out.println("Máxima multiplicación de números adyacentes: " + productoAdyacente(arreglo));
+        System.out.println("Máxima multiplicación de números adyacentes: " + productoAdyacentes(arreglo));
     }
 
     //Es posible mejorar el código utilizando expresiones regulares de java
@@ -68,7 +68,7 @@ public class ProductoAdyacentes {
         }
         System.out.println();
     }
-    public static int productoAdyacente(int[] arreglo){
+    public static int productoAdyacentes(int[] arreglo){
         int maxProducto = arreglo[0] * arreglo[1];
 
         for (int i = 1; i < arreglo.length - 1; i++) {
