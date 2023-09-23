@@ -19,7 +19,9 @@ metodo identificarMayor
 #
 Consideramos agregar más métodos en función de simplificar el código y hacerlo más organizado.
 (Se estimaron 10m para realizar la actividad 0, el tiempo utilizado real, fueron 9.10m)
-
+#
+#PDF INFORME: https://docs.google.com/document/d/1xFJdOfAJKEYkEL0qWZLuJBiZk_oDpyJq8NXPQD0Q4OU/edit?usp=sharing
+#
 test (Leandro)
 ![Capture](https://github.com/Antix199/NumerosAdyacentes/assets/127903058/92928e1f-60c0-40b8-9589-e0e29fee4d5e)
 
