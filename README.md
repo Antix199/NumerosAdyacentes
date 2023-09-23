@@ -12,7 +12,7 @@ metodo llenarArray
 #
 metodo generarRandom
 #
-meotod multiplicarAdyacentes
+meotod productoAdyacentes
 #
 metodo identificarMayor
 #
