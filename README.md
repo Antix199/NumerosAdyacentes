@@ -20,4 +20,5 @@ Consideramos agregar más métodos en función de simplificar el código y hacer
 (Se estimaron 10m para realizar la actividad 0, el tiempo utilizado real, fueron 9.10m)
 
 test (Leandro)
-![Capture](https://github.com/Antix199/NumerosAdyacentes/assets/127903058/190c5baa-3dec-4512-ad6a-f80595d37535)
+![Capture](https://github.com/Antix199/NumerosAdyacentes/assets/127903058/92928e1f-60c0-40b8-9589-e0e29fee4d5e)
+
